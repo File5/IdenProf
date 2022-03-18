@@ -1,5 +1,6 @@
 from __future__ import print_function
 
+import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import LearningRateScheduler
 import os
@@ -11,7 +12,7 @@ from zipfile import ZipFile
 import keras
 from keras.layers import Dense, Activation, Conv2D, MaxPool2D, GlobalAvgPool2D, BatchNormalization, add, Input
 from keras.models import Model
-from tensorflow.python.keras.preprocessing import image
+from tensorflow.keras.preprocessing import image
 import numpy as np
 import json
 
@@ -195,7 +196,7 @@ def train_network():
 
     print(os.listdir(os.path.join(execution_path, "idenprof")))
 
-    optimizer = keras.optimizers.Adam(lr=0.01, decay=1e-4)
+    optimizer = tf.keras.optimizers.Adam(lr=0.01, decay=1e-4)
     batch_size = 32
     num_classes = 10
     epochs = 200
@@ -274,5 +275,5 @@ def run_inference():
 
 
 # run_inference()
-train_network()
+# train_network()
 
